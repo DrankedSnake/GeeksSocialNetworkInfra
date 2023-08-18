@@ -56,6 +56,20 @@ pull_changes:  ## Syncrozie UI REST and INFRA repos
 	git pull
 	@echo "${GREEN}Rest api repo syncronized${RESET}"
 
+push_changes:
+	@echo "${GREEN}Syncronizing infra repo...${RESET}"
+	git push
+	@echo "${GREEN}Infra repo syncronized${RESET}"
+	cd ../GeeksSocialNetworkUI
+	@echo "${GREEN}Syncronizing ui repo...${RESET}"
+	git push
+	@echo "${GREEN}UI repo syncronized${RESET}"
+	cd ../social-network
+	@echo "${GREEN}Syncronizing rest api repo...${RESET}"
+	git push
+	@echo "${GREEN}Rest api repo syncronized${RESET}"
+
+
 deploy: ## Deploy UI, REST appliations by means of docker compose
 	@echo "${GREEN}Start building services in cluster...{RESET}"
 	docker compose up --build
