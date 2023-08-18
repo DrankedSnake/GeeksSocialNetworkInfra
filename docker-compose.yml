@@ -4,17 +4,27 @@ services:
 
   postgres:
     image: postgres
-    container_name: 'java-postgres'
+    container_name: 'postgres'
     restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: social_network_db
     ports:
-      - "5432:5432"
+      - "5612:5432"
 
-  app:
+  api:
     build: ../social-network
-    container_name: 'java-app'
+    container_name: 'api'
     ports:
       - "8080:8080"
+    depends_on:
+      - postgres
+  
+  ui:
+    build: ../GeeksSocialNetworkUI
+    container_name: "ui"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
