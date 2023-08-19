@@ -14,6 +14,8 @@ services:
       - "4444:5432"
     volumes:
       - ./docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
+    networks:
+      - geekssocialnetworkinfra_default
 
   api:
     build: ../GeeksSocialNetworkAPI
@@ -22,6 +24,8 @@ services:
       - "8080:8080"
     depends_on:
       - postgres
+    networks:
+      - geekssocialnetworkinfra_default
   
   ui:
     build: ../GeeksSocialNetworkUI
@@ -32,3 +36,9 @@ services:
       - "3000:3000"
     depends_on:
       - api
+    networks:
+      - geekssocialnetworkinfra_default
+
+networks:
+  geekssocialnetworkinfra_default:
+    external: true
