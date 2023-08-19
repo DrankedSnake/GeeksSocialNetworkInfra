@@ -16,7 +16,7 @@ services:
       - ./docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
 
   api:
-    build: ../social-network
+    build: ../GeeksSocialNetworkAPI
     container_name: 'api'
     ports:
       - "8080:8080"

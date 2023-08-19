@@ -43,7 +43,7 @@ colors: ## show all the colors
 	@echo "${BLUE}BLUE${RESET}"
 	@echo "${WHITE}WHITE${RESET}"
 
-pull_changes:  ## Syncrozie UI REST and INFRA repos
+pull_changes:  ## Syncrozie local UI REST and INFRA repos
 	@echo "${GREEN}Syncronizing infra repo...${RESET}"
 	git pull
 	@echo "${GREEN}Infra repo syncronized${RESET}"
@@ -51,12 +51,12 @@ pull_changes:  ## Syncrozie UI REST and INFRA repos
 	@echo "${GREEN}Syncronizing ui repo...${RESET}"
 	git pull
 	@echo "${GREEN}UI repo syncronized${RESET}"
-	cd ../social-network
+	cd ../GeeksSocialNetworkAPI
 	@echo "${GREEN}Syncronizing rest api repo...${RESET}"
 	git pull
 	@echo "${GREEN}Rest api repo syncronized${RESET}"
 
-push_changes:
+push_changes:  ## Syncrozie remote UI REST and INFRA repos
 	@echo "${GREEN}Syncronizing infra repo...${RESET}"
 	git push
 	@echo "${GREEN}Infra repo syncronized${RESET}"
@@ -64,7 +64,7 @@ push_changes:
 	@echo "${GREEN}Syncronizing ui repo...${RESET}"
 	git push
 	@echo "${GREEN}UI repo syncronized${RESET}"
-	cd ../social-network
+	cd ../GeeksSocialNetworkAPI
 	@echo "${GREEN}Syncronizing rest api repo...${RESET}"
 	git push
 	@echo "${GREEN}Rest api repo syncronized${RESET}"
