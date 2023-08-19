@@ -27,7 +27,7 @@ services:
     build: ../GeeksSocialNetworkUI
     container_name: "ui"
     volumes:
-      - ../GeeksSocialNetworkUI/src:app/src
+      - ../GeeksSocialNetworkUI/src:/app/src
     ports:
       - "3000:3000"
     depends_on:
